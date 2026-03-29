@@ -1,0 +1,34 @@
+{
+  "name": "web-interact",
+  "owner": {
+    "name": "John Kozaris",
+    "email": "ioanniskozaris@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "web-interact",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "Browser automation CLI for AI agents — navigate, discover, click, fill, screenshot, extract",
+      "strict": true,
+      "keywords": [
+        "browser",
+        "automation",
+        "web",
+        "cli",
+        "agent",
+        "screenshot",
+        "testing",
+        "headless",
+        "chrome"
+      ],
+      "skills": [
+        "./skills/web-interact"
+      ]
+    }
+  ],
+  "metadata": {
+    "description": "web-interact browser automation plugin for Claude Code",
+    "version": "0.1.0"
+  }
+}

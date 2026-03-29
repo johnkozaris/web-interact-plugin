@@ -1,0 +1,11 @@
+{
+  "name": "web-interact",
+  "description": "Browser automation CLI for AI agents — navigate, discover, click, fill, screenshot, extract",
+  "license": "MIT",
+  "author": {
+    "name": "John Kozaris",
+    "email": "ioanniskozaris@gmail.com"
+  },
+  "homepage": "https://github.com/johnkozaris/web-interact",
+  "repository": "https://github.com/johnkozaris/web-interact-plugin"
+}
