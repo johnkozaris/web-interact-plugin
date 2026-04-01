@@ -60,7 +60,7 @@ web-interact --version
 
 If not installed, clone and build from source:
 ```bash
-git clone https://git.quascal.com/john/web-interact.git
+git clone https://github.com/johnkozaris/web-interact.git
 cd web-interact
 ./setup.sh
 ```

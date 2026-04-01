@@ -159,10 +159,10 @@ const buf3 = await page.screenshot({ clip: { x: 0, y: 0, width: 800, height: 600
 
 ### Accessibility
 ```javascript
-const snapshot = await page.snapshotForAI();
-console.log(snapshot.full);
-// Returns { full: string, incremental?: string }
-// Options: { track?: string, depth?: number, timeout?: number }
+const snapshot = await page.locator("body").ariaSnapshot();
+console.log(snapshot);
+// Returns accessibility tree as a string
+// Options: { ref?: boolean, timeout?: number }
 ```
 
 ### Cookies and storage

@@ -153,7 +153,7 @@ web-interact --headless wait ".suggestions"
 
 **Cause 1: SingletonLock stale file**
 ```bash
-rm -f ~/Repos/web-interact/local/home/browsers/default/browser-profile/SingletonLock
+rm -f ~/.web-interact/browsers/default/browser-profile/SingletonLock
 web-interact --headless open "https://example.com"
 ```
 
@@ -179,8 +179,8 @@ web-interact --headless open "https://example.com"
 If persistent, the daemon binary may be stale. Rebuild:
 ```bash
 pnpm run bundle
-cargo build --release --manifest-path cli/Cargo.toml
-cp cli/target/release/web-interact bin/web-interact-darwin-arm64
+cargo build --release
+# Binary is at target/release/web-interact
 ```
 
 ## Screenshot is blank or wrong page
