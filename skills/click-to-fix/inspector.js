@@ -1,5 +1,11 @@
 const page = await browser.getPage("default");
 
+// Reset any previous result
+await page.evaluate(() => {
+  window.__clickToFixResult = undefined;
+});
+
+// Inject the inspector overlay
 await page.evaluate(() => {
   if (window.__clickToFixActive) return 'already active';
 
@@ -178,4 +184,9 @@ await page.evaluate(() => {
   window.__clickToFixActive = true;
 });
 
-console.log('Inspector activated');
+// Wait for the user to click (up to 2 minutes)
+await page.waitForFunction(() => window.__clickToFixResult !== undefined, { timeout: 120000 });
+
+// Retrieve and output the result
+const result = await page.evaluate(() => JSON.stringify(window.__clickToFixResult));
+console.log(result);
