@@ -51,21 +51,36 @@ after same-page DOM changes (modals, accordions, dynamic content).
 - `keyboard type "text"` types without targeting an element (for canvas apps, active element input).
 - `mouse click 100 200` clicks at viewport coordinates (for canvas/WebGL apps where elements aren't in DOM).
 
-## Prerequisites
+## Setup check (IMPORTANT — do this before any web-interact command)
 
-The `web-interact` CLI must be in PATH. Check with:
+Before using any `web-interact` command, **always** verify it is installed:
 ```bash
 web-interact --version
 ```
 
-If not installed, clone and build from source:
+If this fails with "command not found", the CLI is not installed.
+**Stop and tell the user they need to install web-interact first.** Suggest the appropriate method:
+
 ```bash
+# npm (recommended — works on macOS, Linux, Windows)
+npm install -g web-interact
+
+# Shell installer (macOS/Linux)
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/johnkozaris/web-interact/releases/latest/download/web-interact-installer.sh | sh
+
+# PowerShell installer (Windows)
+powershell -ExecutionPolicy ByPass -c "irm https://github.com/johnkozaris/web-interact/releases/latest/download/web-interact-installer.ps1 | iex"
+
+# Cargo (if you have Rust)
+cargo install web-interact
+
+# Build from source
 git clone https://github.com/johnkozaris/web-interact.git
-cd web-interact
-./setup.sh
+cd web-interact && ./setup.sh
 ```
 
-The CLI auto-installs its runtime dependencies on first run. No separate install step needed.
+Do NOT attempt to use web-interact commands until the user has installed it.
+After install, the CLI auto-installs its runtime (Patchright + Chrome) on first run — no separate step needed.
 
 ## Quick start
 

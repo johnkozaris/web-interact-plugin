@@ -12,19 +12,29 @@ In Claude Code, run:
 
 ## Prerequisites
 
-The `web-interact` CLI must be installed:
+The `web-interact` CLI must be installed separately. Install via one of:
 
 ```bash
+# npm (recommended — works on macOS, Linux, Windows)
 npm install -g web-interact
-```
 
-Or build from source:
-```bash
+# Shell installer (macOS/Linux)
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/johnkozaris/web-interact/releases/latest/download/web-interact-installer.sh | sh
+
+# PowerShell installer (Windows)
+powershell -ExecutionPolicy ByPass -c "irm https://github.com/johnkozaris/web-interact/releases/latest/download/web-interact-installer.ps1 | iex"
+
+# Cargo (if you have Rust)
+cargo install web-interact
+
+# Build from source
 git clone https://github.com/johnkozaris/web-interact.git
 cd web-interact && ./setup.sh
 ```
 
-The CLI auto-installs its runtime on first run.
+The CLI auto-installs its runtime (Patchright + Chrome) on first run — no separate step needed after install.
+
+> **Note:** If the CLI is not installed, Claude will detect this and prompt you with installation instructions before proceeding.
 
 ## What this plugin provides
 
