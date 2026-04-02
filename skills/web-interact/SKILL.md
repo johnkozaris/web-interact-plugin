@@ -330,7 +330,10 @@ web-interact browsers                            # List browser instances
 web-interact close                               # Close current page
 web-interact close --all                         # Close browser instance
 web-interact stop                                # Stop daemon
-web-interact install                             # Install Patchright runtime
+web-interact install                             # Install browser runtime
+web-interact mode                                # Show current engine mode
+web-interact mode default                        # Switch to Playwright (standard)
+web-interact mode assistant                      # Switch to Patchright (removes automation flags)
 ```
 
 ## Global flags

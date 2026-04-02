@@ -23,7 +23,8 @@
         "chrome"
       ],
       "skills": [
-        "./skills/web-interact"
+        "./skills/web-interact",
+        "./skills/web-interact-mode"
       ]
     }
   ],
