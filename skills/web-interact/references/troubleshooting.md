@@ -219,8 +219,7 @@ can take over and continue automating the authenticated session.
 ## CAPTCHA or bot detection
 
 ```bash
-# web-interact uses Patchright which is undetectable
-# If you still get blocked:
+# If you get blocked by CAPTCHA or bot detection:
 
 # 1. Try headed mode (more human-like)
 web-interact open "https://site.com"         # No --headless

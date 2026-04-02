@@ -328,9 +328,7 @@ web-interact --connect get url
 # Strategy 2: After manual solve, save and reuse cookies
 web-interact --connect cookies get           # Save after solving CAPTCHA
 
-# Strategy 3: web-interact uses Patchright (undetected Chrome) which avoids
-# most CAPTCHAs by not triggering bot detection.
-# If you still get CAPTCHAs, try headed mode (more human-like):
+# Strategy 3: Use headed mode (more reliable for sites with CAPTCHAs):
 web-interact open "https://captcha-heavy-site.com"    # No --headless
 ```
 

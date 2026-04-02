@@ -2,7 +2,7 @@
 name: web-interact
 description: >
   Browser automation CLI for navigating websites, filling forms, clicking buttons,
-  extracting data, taking screenshots, and automating any web workflow — undetected.
+  extracting data, taking screenshots, and automating any web workflow.
   Use when users ask to interact with a website, test a web app, fill a form, scrape data,
   take screenshots, log into a service, automate a browser task, or inspect a web page.
   Trigger phrases: "go to", "open", "click", "fill out", "screenshot", "scrape",
@@ -14,7 +14,7 @@ description: >
 # web-interact
 
 Browser automation CLI. Each shell command maps to one browser action.
-Uses real Chrome via Patchright — undetectable by anti-bot systems.
+Uses real Chrome via Patchright (Playwright fork). Designed for automating your own web applications — please use responsibly.
 
 ## Core loop
 
