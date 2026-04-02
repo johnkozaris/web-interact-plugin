@@ -24,6 +24,7 @@
       ],
       "skills": [
         "./skills/web-interact",
+        "./skills/click-to-fix",
         "./skills/mode",
         "./skills/browser-mode"
       ]
