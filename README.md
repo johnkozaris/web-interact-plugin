@@ -79,9 +79,10 @@ Detailed documentation loaded on demand:
 
 ---
 
-## Author
+## Authors
 
-**John Kozaris** — [ioanniskozaris@gmail.com](mailto:ioanniskozaris@gmail.com) · [GitHub](https://github.com/johnkozaris)
+**John Kozaris** — [GitHub](https://github.com/johnkozaris)
+**Edoardo Re** — [GitHub](https://github.com/edoardorex)
 
 ## License
 
