@@ -1,51 +1,87 @@
-# web-interact plugin
+<div align="center">
 
-Claude Code plugin for [web-interact](https://github.com/johnkozaris/web-interact) — browser automation CLI for AI agents.
+<img src="assets/github-banner.png" alt="web-interact — Coding Agents Surf The Web" width="100%" />
 
-## Install
+<br />
 
-In Claude Code, run:
+**Claude Code plugin for [web-interact](https://github.com/johnkozaris/web-interact)**
+
+[![Plugin](https://img.shields.io/badge/Claude_Code-plugin-7c3aed)](https://github.com/johnkozaris/web-interact-plugin)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+</div>
+
+---
+
+Give Claude Code the ability to open pages, discover elements, click buttons, fill forms, take screenshots, and extract data — all through the `web-interact` CLI. Claude knows when to use it automatically based on what you ask.
+
+---
+
+## Install the plugin
+
 ```
 /plugin marketplace add johnkozaris/web-interact-plugin
-/plugin install web-interact@web-interact-plugin
 ```
 
-## Prerequisites
+## Install the CLI
 
-The `web-interact` CLI must be installed separately. Install via one of:
+The plugin needs the `web-interact` CLI installed separately:
 
 ```bash
-# npm (recommended — works on macOS, Linux, Windows)
+# npm (recommended)
 npm install -g web-interact
 
 # Shell installer (macOS/Linux)
 curl --proto '=https' --tlsv1.2 -LsSf https://github.com/johnkozaris/web-interact/releases/latest/download/web-interact-installer.sh | sh
 
-# PowerShell installer (Windows)
+# PowerShell (Windows)
 powershell -ExecutionPolicy ByPass -c "irm https://github.com/johnkozaris/web-interact/releases/latest/download/web-interact-installer.ps1 | iex"
-
-# Cargo (if you have Rust)
-cargo install web-interact
-
-# Build from source
-git clone https://github.com/johnkozaris/web-interact.git
-cd web-interact && ./setup.sh
 ```
 
-The CLI auto-installs its runtime (Playwright + Chrome) on first run — no separate step needed after install.
+Runtime (Playwright + Chrome) auto-installs on first run. If the CLI is missing, Claude will detect it and prompt you.
 
-> **Note:** If the CLI is not installed, Claude will detect this and prompt you with installation instructions before proceeding.
+---
 
-## What this plugin provides
+## What you get
 
-- **Skill**: `web-interact` — tells Claude when and how to use the browser automation CLI
-- **Skill**: `/mode` — switch engine between default (Playwright) and assistant (Patchright)
-- **Skill**: `/browser-mode` — switch browser connection: auto, real (your browser), or sandbox
-- **Reference docs**: command reference, workflow patterns, advanced interactions, scripting API, troubleshooting
+### `/web-interact` skill
+Claude auto-invokes this when you ask to interact with a website. Covers 40+ commands: navigate, discover elements, click, fill, screenshot, eval, network mocking, storage, and more.
+
+**Trigger phrases:** *"go to"*, *"open"*, *"click"*, *"fill out"*, *"screenshot"*, *"scrape"*, *"test the website"*, *"log into"*, *"navigate to"*
+
+### `/mode` command
+Switch the browser engine:
+
+| Mode | Engine | What it does |
+|------|--------|-------------|
+| `default` | Playwright | Standard automation |
+| `assistant` | Patchright | Removes automation flags, auto-humanized delays |
+
+### `/browser-mode` command
+Switch how the browser connects:
+
+| Mode | What it does |
+|------|-------------|
+| `auto` | CLI decides (default) |
+| `real` | Connect to your running Chrome/Edge |
+| `sandbox` | Managed browser with persistent profile |
+
+### Reference docs
+Detailed documentation loaded on demand:
+
+| File | Contents |
+|------|----------|
+| `commands.md` | Full command reference with all flags |
+| `patterns.md` | Login, forms, search, e-commerce, mocking |
+| `advanced-interactions.md` | SPAs, dropdowns, date pickers, shadow DOM, canvas |
+| `scripting.md` | Script mode API with loops and conditionals |
+| `troubleshooting.md` | Common problems and fixes |
+
+---
 
 ## Author
 
-John Kozaris (ioanniskozaris@gmail.com)
+**John Kozaris** — [ioanniskozaris@gmail.com](mailto:ioanniskozaris@gmail.com) · [GitHub](https://github.com/johnkozaris)
 
 ## License
 
