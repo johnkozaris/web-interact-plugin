@@ -1,6 +1,6 @@
 # Inspector Script — Annotated Reference
 
-The inspector script is injected into the browser page via `web-interact eval`.
+The inspector script is injected into the browser page via `web-interact click-to-fix`.
 It creates a visual overlay, highlights elements on hover, and captures the clicked
 element's source metadata.
 

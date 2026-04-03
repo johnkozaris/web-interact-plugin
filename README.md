@@ -1,67 +1,88 @@
-# web-interact plugin
+<div align="center">
 
-Claude Code plugin for [web-interact](https://github.com/johnkozaris/web-interact) — browser automation CLI for AI agents.
+<img src="assets/github-banner.png" alt="web-interact — Coding Agents Surf The Web" width="100%" />
 
-## Install
+<br />
 
-In Claude Code, run:
+**Claude Code plugin for [web-interact](https://github.com/johnkozaris/web-interact)**
+
+[![Plugin](https://img.shields.io/badge/Claude_Code-plugin-7c3aed)](https://github.com/johnkozaris/web-interact-plugin)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+</div>
+
+---
+
+Give Claude Code the ability to open pages, discover elements, click buttons, fill forms, take screenshots, and extract data — all through the `web-interact` CLI. Claude knows when to use it automatically based on what you ask.
+
+---
+
+## Install the plugin
+
 ```
 /plugin marketplace add johnkozaris/web-interact-plugin
-/plugin install web-interact@web-interact-plugin
 ```
 
-## Prerequisites
+## Install the CLI
 
-The `web-interact` CLI must be installed separately. Install via one of:
+The plugin needs the `web-interact` CLI installed separately:
 
 ```bash
-# npm (recommended — works on macOS, Linux, Windows)
+# npm (recommended)
 npm install -g web-interact
 
 # Shell installer (macOS/Linux)
 curl --proto '=https' --tlsv1.2 -LsSf https://github.com/johnkozaris/web-interact/releases/latest/download/web-interact-installer.sh | sh
 
-# PowerShell installer (Windows)
+# PowerShell (Windows)
 powershell -ExecutionPolicy ByPass -c "irm https://github.com/johnkozaris/web-interact/releases/latest/download/web-interact-installer.ps1 | iex"
-
-# Cargo (if you have Rust)
-cargo install web-interact
-
-# Build from source
-git clone https://github.com/johnkozaris/web-interact.git
-cd web-interact && ./setup.sh
 ```
 
-The CLI auto-installs its runtime (Patchright + Chrome) on first run — no separate step needed after install.
+Runtime (Playwright + Chrome) auto-installs on first run. If the CLI is missing, Claude will detect it and prompt you.
 
-> **Note:** If the CLI is not installed, Claude will detect this and prompt you with installation instructions before proceeding.
+---
 
-## What this plugin provides
+## What you get
 
-### `web-interact` skill
-Browser automation CLI for navigating websites, filling forms, clicking buttons, extracting data, taking screenshots, and automating any web workflow — undetected. Uses real Chrome via Patchright.
+### `/web-interact` skill
+Claude auto-invokes this when you ask to interact with a website. Covers 40+ commands: navigate, discover elements, click, fill, screenshot, eval, network mocking, storage, and more.
 
-**Trigger phrases**: "go to", "open", "click", "fill out", "screenshot", "scrape", "automate", "test the website", "log into", "navigate to", or any browser interaction.
+**Trigger phrases:** *"go to"*, *"open"*, *"click"*, *"fill out"*, *"screenshot"*, *"scrape"*, *"test the website"*, *"log into"*, *"navigate to"*
 
-### `click-to-fix` skill
-Click any element in the browser to trace it back to its source code file and line number. Opens a visual inspector overlay, lets you click an element, then extracts framework dev-mode source metadata to jump straight to the code.
+### `/mode` command
+Switch the browser engine:
 
-**How it works:**
-1. Opens your app in the browser with a purple inspector overlay
-2. Hover over elements to see their component name and source file
-3. Click the element you want to fix
-4. Claude opens the source file and asks what you'd like to change
+| Mode | Engine | What it does |
+|------|--------|-------------|
+| `default` | Playwright | Standard automation |
+| `assistant` | Patchright | Removes automation flags, auto-humanized delays |
 
-**Supports:** React (`_debugSource`), Vue (`__file`), Svelte (`__svelte_meta`), Angular (`ng.getComponent`). Falls back to intelligent codebase search (data-testid, CSS classes, text content, ARIA labels) when framework metadata is unavailable.
+### `/browser-mode` command
+Switch how the browser connects:
 
-**Trigger phrases**: "click to fix", "inspect element", "find component", "trace element", "locate source", "where is this component", "fix this element".
+| Mode | What it does |
+|------|-------------|
+| `auto` | CLI decides (default) |
+| `real` | Connect to your running Chrome/Edge |
+| `sandbox` | Managed browser with persistent profile |
 
 ### Reference docs
-Command reference, workflow patterns, advanced interactions, scripting API, troubleshooting, inspector script internals, and source resolver strategies.
+Detailed documentation loaded on demand:
 
-## Author
+| File | Contents |
+|------|----------|
+| `commands.md` | Full command reference with all flags |
+| `patterns.md` | Login, forms, search, e-commerce, mocking |
+| `advanced-interactions.md` | SPAs, dropdowns, date pickers, shadow DOM, canvas |
+| `scripting.md` | Script mode API with loops and conditionals |
+| `troubleshooting.md` | Common problems and fixes |
 
-John Kozaris (ioanniskozaris@gmail.com)
+---
+
+## Authors
+
+**John Kozaris** — [GitHub](https://github.com/johnkozaris)
+**Edoardo Re** — [GitHub](https://github.com/edoardorex)
 
 ## License
 
