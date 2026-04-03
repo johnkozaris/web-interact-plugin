@@ -26,10 +26,14 @@ web-interact mode assistant
 
 ## Modes
 
-| Mode | Engine | Automation banner | Best for |
-|------|--------|-------------------|----------|
-| `default` | Playwright | Visible | Your own apps, testing, development |
-| `assistant` | Patchright | Hidden | Sites with bot detection, login flows |
+| Mode | Engine | Automation banner | Humanize | Best for |
+|------|--------|-------------------|----------|----------|
+| `default` | Playwright | Visible | Off (use `--humanize` to enable) | Your own apps, testing, development |
+| `assistant` | Patchright | Hidden | Auto-enabled | Sites with bot detection, login flows |
+
+**Assistant mode auto-enables `--humanize`**: natural random delays between clicks (80-400ms),
+keystrokes (30-90ms per char), and form actions. This makes interactions look human-like.
+You can also use `--humanize` with default mode on any command.
 
 ## What happens on switch
 

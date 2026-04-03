@@ -342,7 +342,9 @@ web-interact mode assistant                      # Switch to Patchright (removes
 |------|------------|
 | `--headless` | Run without visible window |
 | `--browser NAME` | Named browser instance (default: "default") |
-| `--connect [URL]` | Connect to running Chrome (auto-discovers if no URL) |
+| `--connect [URL]` | Connect to running Chrome/Edge (auto-discovers if no URL) |
+| `--own-browser` | Use user's running browser (shorthand for `--connect auto`) |
+| `--humanize` | Natural delays between actions (auto-enabled in assistant mode) |
 | `--vision` | Plain screenshot after each command |
 | `--vision --annotate` | Screenshot with numbered element overlays |
 | `--timeout SECONDS` | Script timeout (default: 20s) |
