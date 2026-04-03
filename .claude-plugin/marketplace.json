@@ -24,7 +24,8 @@
       ],
       "skills": [
         "./skills/web-interact",
-        "./skills/mode"
+        "./skills/mode",
+        "./skills/browser-mode"
       ]
     }
   ],
