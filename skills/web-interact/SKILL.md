@@ -14,7 +14,8 @@ description: >
 # web-interact
 
 Browser automation CLI. Each shell command maps to one browser action.
-Uses real Chrome via Patchright (Playwright fork). Designed for automating your own web applications — please use responsibly.
+Browser automation CLI. Uses Playwright by default (switch to Patchright with `web-interact mode assistant`).
+Designed for automating your own web applications — please use responsibly.
 
 ## Core loop
 
@@ -80,7 +81,7 @@ cd web-interact && ./setup.sh
 ```
 
 Do NOT attempt to use web-interact commands until the user has installed it.
-After install, the CLI auto-installs its runtime (Patchright + Chrome) on first run — no separate step needed.
+After install, the CLI auto-installs its runtime (Playwright + Chrome) on first run — no separate step needed.
 
 ## Quick start
 
@@ -315,7 +316,7 @@ web-interact mouse click 500 300                 # Click at coordinates
 web-interact mouse click 500 300 --button right  # Right-click
 web-interact mouse down                          # Mouse button down
 web-interact mouse up                            # Mouse button up
-web-interact mouse wheel 0 -300                  # Scroll wheel
+web-interact mouse wheel -- -300                  # Scroll wheel (DY first, negative = up)
 web-interact keyboard type "Hello World" --delay 50   # Type with delay
 web-interact keyboard insert "pasted text"       # Insert without key events
 web-interact keyboard press Control+c            # Key combo
@@ -446,15 +447,14 @@ web-interact --headless --vision --annotate open "https://myapp.example.com"
 # stderr: vision:/path/to/vision.png (with [1], [2], etc. on elements)
 ```
 
-### Connect to user's running Chrome
+### Connect to user's running Chrome/Edge
 ```bash
-# Attach to Chrome with remote debugging enabled
-web-interact --connect open "https://example.com"
-web-interact --connect discover
-web-interact --connect screenshot --annotate
+# Use --own-browser to auto-discover and connect to user's browser
+web-interact --own-browser discover
+web-interact --own-browser screenshot --annotate
 
-# Auto-discover Chrome debugging port
-web-interact --connect get url
+# Or connect with explicit URL
+web-interact --connect ws://127.0.0.1:9222 discover
 ```
 
 ## Deep-dive references
@@ -471,7 +471,8 @@ For detailed documentation, read these reference files:
 
 ## Tips
 
-- NEVER use --headless for login pages from major providers (Google, Microsoft, Amazon, GitHub, Facebook). They enforce passkeys, device trust, CAPTCHAs that headless cannot handle. Use headed mode or --connect instead.
+- NEVER use --headless for login pages from major providers (Google, Microsoft, Amazon, GitHub, Facebook). They enforce passkeys, device trust, CAPTCHAs that headless cannot handle. Use headed mode, --own-browser, or --connect instead.
+- For login flows and bot-sensitive sites, use `web-interact mode assistant` to switch to Patchright with auto-humanized interactions. Or add `--humanize` to any command for natural delays.
 - ALWAYS re-discover after navigation, form submission, or any action that changes the DOM.
 - Indices auto-refresh when the page URL changes, but explicitly re-discover after same-page changes (modals, accordions, AJAX updates).
 - `fill` clears then types — use for form fields. `type` appends — use for search boxes with autocomplete.

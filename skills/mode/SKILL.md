@@ -1,5 +1,5 @@
 ---
-name: web-interact-mode
+name: mode
 description: >
   Show or switch the web-interact browser engine between default (Playwright)
   and assistant (Patchright). Use when the user asks to change browser mode,
@@ -7,7 +7,7 @@ description: >
 disable-model-invocation: true
 ---
 
-# web-interact-mode
+# mode
 
 Switch the browser engine used by web-interact.
 
