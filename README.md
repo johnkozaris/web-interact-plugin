@@ -32,13 +32,15 @@ git clone https://github.com/johnkozaris/web-interact.git
 cd web-interact && ./setup.sh
 ```
 
-The CLI auto-installs its runtime (Patchright + Chrome) on first run — no separate step needed after install.
+The CLI auto-installs its runtime (Playwright + Chrome) on first run — no separate step needed after install.
 
 > **Note:** If the CLI is not installed, Claude will detect this and prompt you with installation instructions before proceeding.
 
 ## What this plugin provides
 
 - **Skill**: `web-interact` — tells Claude when and how to use the browser automation CLI
+- **Skill**: `/mode` — switch engine between default (Playwright) and assistant (Patchright)
+- **Skill**: `/browser-mode` — switch browser connection: auto, real (your browser), or sandbox
 - **Reference docs**: command reference, workflow patterns, advanced interactions, scripting API, troubleshooting
 
 ## Author

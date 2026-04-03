@@ -14,7 +14,7 @@ description: >
 # web-interact
 
 Browser automation CLI. Each shell command maps to one browser action.
-Browser automation CLI. Uses Playwright by default (switch to Patchright with `web-interact mode assistant`).
+Uses Playwright by default (switch to Patchright with `web-interact mode assistant`).
 Designed for automating your own web applications — please use responsibly.
 
 ## Core loop
@@ -332,9 +332,13 @@ web-interact close                               # Close current page
 web-interact close --all                         # Close browser instance
 web-interact stop                                # Stop daemon
 web-interact install                             # Install browser runtime
-web-interact mode                                # Show current engine mode
-web-interact mode default                        # Switch to Playwright (standard)
-web-interact mode assistant                      # Switch to Patchright (removes automation flags)
+web-interact mode                                # Show engine: default (Playwright) or assistant (Patchright)
+web-interact mode assistant                      # Switch to Patchright + auto-humanize
+web-interact mode default                        # Switch back to Playwright
+web-interact browser-mode                        # Show connection: auto, real, or sandbox
+web-interact browser-mode real                   # Always connect to your running browser
+web-interact browser-mode sandbox                # Always use managed browser
+web-interact browser-mode auto                   # Let the CLI decide (default)
 ```
 
 ## Global flags

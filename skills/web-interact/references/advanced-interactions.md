@@ -334,7 +334,7 @@ web-interact open "https://captcha-heavy-site.com"    # No --headless
 
 ## Alerts, confirms, and prompts (JavaScript dialogs)
 
-Patchright auto-dismisses dialogs by default. To control them:
+The browser engine auto-dismisses dialogs by default. To control them:
 
 ```bash
 # Pre-set dialog responses before triggering

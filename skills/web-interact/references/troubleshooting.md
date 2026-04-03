@@ -159,7 +159,7 @@ web-interact --headless open "https://example.com"
 
 **Cause 2: Chrome not installed**
 ```bash
-web-interact install                         # Install Patchright runtime + Chrome
+web-interact install                         # Install browser runtime + Chrome
 ```
 
 **Cause 3: Another Chrome instance using the profile**
@@ -221,14 +221,19 @@ can take over and continue automating the authenticated session.
 ```bash
 # If you get blocked by CAPTCHA or bot detection:
 
-# 1. Try headed mode (more human-like)
-web-interact open "https://site.com"         # No --headless
+# 1. Switch to assistant mode (Patchright + humanized delays)
+web-interact mode assistant
+web-interact open "https://site.com"
 
-# 2. Connect to user's existing Chrome session
-web-interact --connect discover
+# 2. Try headed mode (no --headless)
+web-interact open "https://site.com"
 
-# 3. Slow down interactions (too-fast actions can trigger detection)
-web-interact --headless keyboard type "search text" --delay 100
+# 3. Connect to user's existing browser (already logged in)
+web-interact --own-browser discover
+# or: web-interact browser-mode real
+
+# 4. Add --humanize for natural delays on any command
+web-interact --humanize open "https://site.com"
 ```
 
 ## Network route not working

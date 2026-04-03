@@ -6,17 +6,21 @@ Real-world patterns for common browser automation tasks.
 
 NEVER use --headless for Google, Microsoft, Amazon, GitHub, Facebook login pages.
 They enforce passkeys, device trust checks, and CAPTCHAs that headless cannot handle.
-Use headed mode (no --headless) so the user can approve biometric/security prompts.
 
 ```bash
 # WRONG — will get stuck on passkey/FIDO prompt:
 web-interact --headless open "https://accounts.google.com"
 
-# RIGHT — user sees the browser and can approve auth:
+# BEST — assistant mode (Patchright + humanized delays, headed):
+web-interact mode assistant
 web-interact open "https://accounts.google.com"
 
-# ALSO RIGHT — connect to user's existing logged-in Chrome:
-web-interact --connect discover
+# ALSO GOOD — connect to user's existing logged-in browser:
+web-interact --own-browser discover
+# or persist: web-interact browser-mode real
+
+# OK — headed default mode (user sees browser, can approve auth):
+web-interact open "https://accounts.google.com"
 ```
 
 ## Login with redirect verification
@@ -190,14 +194,16 @@ web-interact --headless --vision --annotate open "https://myapp.example.com"
 # stderr: vision:/path/to/vision.png  (with [1], [2], etc. on elements)
 ```
 
-## Connect to user's running Chrome
+## Connect to user's running Chrome/Edge
 
 ```bash
-# Auto-discover Chrome with remote debugging
-web-interact --connect tab list
-web-interact --connect discover
-web-interact --connect screenshot --annotate
-web-interact --connect get url
+# Use --own-browser (auto-discovers via DevToolsActivePort)
+web-interact --own-browser discover
+web-interact --own-browser screenshot --annotate
+
+# Or persist: always connect to user's browser
+web-interact browser-mode real
+web-interact discover                            # now auto-connects every time
 
 # Connect to specific debugging port
 web-interact --connect ws://127.0.0.1:9222 tab list

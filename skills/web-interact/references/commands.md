@@ -271,7 +271,14 @@ web-interact browsers                                 # Table of browser instanc
 web-interact close                                    # Close current page
 web-interact close --all                              # Close entire browser instance
 web-interact stop                                     # Stop daemon and all browsers
-web-interact install                                  # Install Patchright runtime + Chrome
+web-interact install                                  # Install browser runtime + Chrome
+web-interact mode                                     # Show engine mode (default/assistant)
+web-interact mode assistant                           # Switch to Patchright + auto-humanize
+web-interact mode default                             # Switch to Playwright (standard)
+web-interact browser-mode                             # Show browser connection mode
+web-interact browser-mode real                        # Always use your running browser
+web-interact browser-mode sandbox                     # Always use managed browser
+web-interact browser-mode auto                        # Let CLI decide (default)
 ```
 
 ## Global Flags
@@ -281,7 +288,9 @@ Every command accepts these flags:
 ```
 --headless              Run without visible window
 --browser NAME          Named browser instance (default: "default")
---connect [URL]         Connect to running Chrome (omit URL to auto-discover)
+--connect [URL]         Connect to running Chrome/Edge (omit URL to auto-discover)
+--own-browser           Use your running browser (shorthand for --connect auto)
+--humanize              Natural delays between actions (auto-enabled in assistant mode)
 --vision                Plain screenshot after each command (path on stderr)
 --vision --annotate     Screenshot with numbered element overlays after each command
 --timeout SECONDS       Script timeout (default: 20)
